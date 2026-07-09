@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'screens/login/login_screen.dart';
 import 'core/theme/app_theme.dart';
 import 'screens/splash/splash_screen.dart';
 
@@ -16,7 +16,7 @@ class MeeraMediSistApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Meera MediSist',
       theme: AppTheme.lightTheme,
-      home: const SplashScreen(),
+      home: const LoginScreen(),
     );
   }
 }
