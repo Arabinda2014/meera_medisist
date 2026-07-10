@@ -1,6 +1,8 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:meera_medisist/core/constants/app_colors.dart';
-import 'dart:async';
+import 'package:meera_medisist/screens/login/login_screen.dart';
+
 //import '../../core/constants/app_strings.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -13,17 +15,31 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   bool isLoading = true;
   String status = "Loading...";
+  Timer? _timer;
+
   @override
   void initState() {
     super.initState();
+
     debugPrint("Splash Screen Initialized");
-    Timer(const Duration(seconds: 3), () {
-      setState(() {
-        isLoading = false;
-        status = "Reddy to Assist";
-      });
+
+    _timer = Timer(const Duration(seconds: 3), () {
+      if (!mounted) return;
+
       debugPrint("Timer Completed");
+
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const LoginScreen()),
+      );
     });
+  }
+
+  @override
+  void dispose() {
+    _timer;
+    _timer?.cancel();
+    super.dispose();
   }
 
   @override
@@ -43,7 +59,7 @@ class _SplashScreenState extends State<SplashScreen> {
             ),
 
             const Text(
-              ' Meera MediSist',
+              'Meera MediSist',
               style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
             ),
 

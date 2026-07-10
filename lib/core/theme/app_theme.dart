@@ -7,9 +7,7 @@ class AppTheme {
     primaryColor: AppColors.primary,
     scaffoldBackgroundColor: AppColors.background,
 
-    colorScheme: ColorScheme.fromSeed(
-      seedColor: AppColors.primary,
-    ),
+    colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primary),
 
     appBarTheme: const AppBarTheme(
       centerTitle: true,
