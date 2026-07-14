@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meera_medisist/widgets/catagory_card.dart';
+import 'package:meera_medisist/screens/medicine/medicine_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -51,7 +52,12 @@ class HomeScreen extends StatelessWidget {
                     icon: Icons.medication,
                     title: "Tablets",
                     onTap: () {
-                      debugPrint("Tablets selected");
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const MedicineScreen(),
+                        ),
+                      );
                     },
                   ),
                 ),
@@ -61,7 +67,12 @@ class HomeScreen extends StatelessWidget {
                     icon: Icons.healing,
                     title: "First Aid",
                     onTap: () {
-                      debugPrint("First Aid Selected");
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const MedicineScreen(),
+                        ),
+                      );
                     },
                   ),
                 ),
@@ -71,7 +82,12 @@ class HomeScreen extends StatelessWidget {
                     icon: Icons.personal_injury,
                     title: "Injury",
                     onTap: () {
-                      debugPrint("Injury selected");
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const MedicineScreen(),
+                        ),
+                      );
                     },
                   ),
                 ),

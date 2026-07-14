@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:meera_medisist/core/constants/app_colors.dart';
-import 'package:meera_medisist/screens/home/home_screen.dart';
-import 'package:meera_medisist/screens/password/forgot_password.dart';
-import 'package:meera_medisist/screens/register/registration_screen.dart';
+import 'package:meera_medisist/screens/password/forgot_password_status.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class ForgotPasswordScreen extends StatefulWidget {
+  const ForgotPasswordScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<ForgotPasswordScreen> createState() => _ForgotPasswordScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
   bool isPasswordHidden = true;
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
@@ -56,7 +54,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     const SizedBox(height: 10),
 
                     const Text(
-                      "Welcome Back!",
+                      "Welcome to forgot password page!",
                       style: TextStyle(
                         fontSize: 17,
                         fontWeight: FontWeight.w600,
@@ -66,7 +64,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     const SizedBox(height: 8),
 
                     const Text(
-                      "Sign in to continue",
+                      "Provide your details to re-generate your password.",
                       style: TextStyle(fontSize: 16, color: AppColors.grey),
                     ),
 
@@ -143,7 +141,8 @@ class _LoginScreenState extends State<LoginScreen> {
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const HomeScreen(),
+                                builder: (context) =>
+                                    const PasswordStatusScreen(),
                               ),
                             );
 
@@ -161,51 +160,13 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                         ),
                         child: const Text(
-                          "LOGIN",
+                          "Reset Password",
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),
-                    ),
-                    const SizedBox(height: 15),
-
-                    Align(
-                      alignment: Alignment.centerRight,
-                      child: TextButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                  const ForgotPasswordScreen(),
-                            ),
-                          );
-                        },
-                        child: const Text("Forgot Password?"),
-                      ),
-                    ),
-                    const SizedBox(height: 20),
-
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Text("Don't have an account?"),
-
-                        TextButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) =>
-                                    const RegistrationScreen(),
-                              ),
-                            );
-                          },
-                          child: const Text("Register"),
-                        ),
-                      ],
                     ),
                   ],
                 ),
